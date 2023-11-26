@@ -19,7 +19,7 @@
     "webpack-dev-server": "3"
   },
   "dependencies": {
-    "@babel/core": "7.0.0",
+    "@babel/core": "7.23.3",
     "@rails/webpacker": "5.4.4",
     "dfe-frontend-alpha": "^1.0.1",
     "webpack": "4.46.0"
