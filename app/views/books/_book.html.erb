@@ -1,0 +1,20 @@
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          <%= book.title %>
+          <span class="govuk-caption-l"><%= book.author %></span>
+        </h1>
+        <div class="govuk-inset-text">
+          <%= book.description %>
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-s"><%= book.datePublished.strftime("%d %b %y") %></h2>
+        <%= button_to "delete", { controller: :books, action: 'destroy', id: book.id }, method: :delete, class: "govuk-button govuk-button--warning" %>
+      </div>
+    </div>
+  </main>
+</div>
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">

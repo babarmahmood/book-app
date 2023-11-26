@@ -1,0 +1,47 @@
+<%= form_with(model: @book, url: books_path, method: :post) do |form| %>
+  <div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="book-title">
+        Please Add A New Book Here
+      </label>
+    </h1>
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="book-title">
+      Title
+    </label>
+    <%= form.text_field :title, class: "govuk-input", id: "book-title" %>
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="book-author">
+      Author
+    </label>
+    <%= form.text_field :author, class: "govuk-input", id: "book-author" %>
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="book-description">
+      Description
+    </label>
+    <%= form.text_area :description, class: "govuk-textarea", id: "book-description" %>
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="book-datePublished">
+      Date Published
+    </label>
+    <%= form.date_field :datePublished, class: "govuk-input", id: "book-datePublished" %>
+    <% if @book.errors[:datePublished].any? %>
+  <span id="datePublished-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> <%= @book.errors[:datePublished].first %>
+  </span>
+<% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Create Book', class: "govuk-button govuk-button--start" %>
+    <%= link_to 'Back', books_path, class: "govuk-button govuk-button--start" %>
+  </div>
+<% end %>

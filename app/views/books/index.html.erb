@@ -1,0 +1,23 @@
+<!-- app/views/books/index.html.erb -->
+<%= link_to "Add New Book", new_book_path, class: "govuk-button" %>
+<!-- Add an ID to the Send Test Email link -->
+<%= link_to "Test Email", "#", id: "show-email-form", class: "govuk-button govuk-button--secondary" %>
+
+<!-- Render the email form partial -->
+<%= render 'email_form' %>
+<!-- Render the book view partial -->
+<%= render partial: 'book', collection: @books %>
+
+<!-- jQuery script -->
+<script>
+   $(document).ready(function() {
+     $("#email-form").hide();
+     $("#show-email-form").click(function() {
+       $("#email-form").show();
+     });
+   
+     $("#cancel-email-form").click(function() {
+       $("#email-form").hide();
+     });
+   });
+</script>
